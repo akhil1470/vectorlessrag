@@ -79,49 +79,6 @@ What VectorlessRAG adds is the **knowledge compounding loop**. Every conversatio
 ---
 
 
-## 🚀 What it can actually do
-
-Here are real examples across different document types — not just financial reports.
-
----
-
-### 🧪 Clinical & Pharma Documents
-
-Index a clinical trial protocol (180 pages, complex eligibility criteria, dose tables, stopping rules):
-
-```python
-rag.add_document("study_xyz001_protocol.pdf", topic_name="clinical_xyz", mode="text")
-```
-
-```
-Query: "what are the dose-limiting toxicity criteria for arm A?"
-
-Response: DLT criteria for Arm A (pages 14-16): Grade 3 non-hematologic toxicity
-lasting >7 days, Grade 4 hematologic toxicity, any Grade 3 cardiac event, dose
-delay >14 days due to drug-related adverse events. Primary DLT window is Cycle 1
-(Days 1-21). Exceptions listed for Grade 3 alopecia and Grade 3 nausea controlled
-within 48hrs with antiemetics.
-```
-
-```
-Query: "compare primary endpoints between the two arms"
-
-Response: Arm A primary endpoint — maximum tolerated dose (MTD) determination
-with secondary ORR at 12 weeks. Arm B primary endpoint — PFS at 6 months vs
-placebo. Statistical power calculations: Arm A uses 3+3 dose escalation with
-N=6-18, Arm B uses superiority design with 80% power, α=0.05, N=120 per arm.
-```
-
-```
-Query: "what happens if two patients in the same cohort experience a DLT?"
-
-Response: Per the stopping rules (page 63): if 2/6 patients in any cohort experience
-a DLT, dose escalation halts. The cohort is expanded to 6 patients if initial 3
-show 1 DLT. If 2/6 DLTs are confirmed, that dose level is declared the maximum
-administered dose (MAD) and the previous dose becomes the MTD recommendation.
-```
-
----
 
 ### ⚖️ Legal Contracts
 
